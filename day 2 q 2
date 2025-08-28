@@ -1,0 +1,20 @@
+#include <stdio.h>
+#define PI 3.14159  // Define the value of PI
+
+int main() {
+    float radius, area, circumference;
+
+    // Input: Read radius from the user
+    printf("Enter the radius of the circle: ");
+    scanf("%f", &radius);
+
+    // Operations
+    area = PI * radius * radius;
+    circumference = 2 * PI * radius;
+
+    // Output
+    printf("Area = %.2f\n", area);
+    printf("Circumference = %.2f\n", circumference);
+
+    return 0;
+}
