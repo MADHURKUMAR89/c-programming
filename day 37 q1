@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int main() {
+    int matrix[10][10], rowSums[10];
+    int rows, cols;
+
+
+    printf("Enter number of rows: ");
+    scanf("%d", &rows);
+    printf("Enter number of columns: ");
+    scanf("%d", &cols);
+
+
+    printf("Enter elements of the matrix:\n");
+    for (int i = 0; i < rows; i++) {
+        rowSums[i] = 0; // Initialize row sum
+        for (int j = 0; j < cols; j++) {
+            scanf("%d", &matrix[i][j]);
+            rowSums[i] += matrix[i][j]; // Add to row sum
+        }
+    }
+
+
+    printf("\nSum of each row:\n");
+    for (int i = 0; i < rows; i++) {
+        printf("Row %d sum = %d\n", i + 1, rowSums[i]);
+    }
+
+    return 0;
+}
