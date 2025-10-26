@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int main() {
+    char str[200];
+    int i = 0;
+
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin);  // safer than gets()
+
+
+    while (str[i] != '\0') {
+        // Stop if newline character (from fgets) is reached
+        if (str[i] == '\n')
+            break;
+
+        if (str[i] == ' ') {
+            str[i] = '-';  // Replace space with hyphen
+        }
+        i++;
+    }
+
+    printf("Modified string: %s", str);
+
+    return 0;
+}
