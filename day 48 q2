@@ -1,0 +1,47 @@
+#include <stdio.h>
+
+int main() {
+    char str[200];
+    int i = 0, start, end;
+
+    printf("Enter a sentence: ");
+    fgets(str, sizeof(str), stdin);  
+
+
+    for (i = 0; str[i] != '\0'; i++) {
+        if (str[i] == '\n') {
+            str[i] = '\0';
+            break;
+        }
+    }
+
+    i = 0;
+    while (str[i] != '\0') {
+        // Skip spaces
+        while (str[i] == ' ' && str[i] != '\0') {
+            i++;
+        }
+
+        start = i;  // start index of a word
+
+
+        while (str[i] != ' ' && str[i] != '\0') {
+            i++;
+        }
+        end = i - 1;  // end index of a word
+
+        int left = start, right = end;
+        char temp;
+        while (left < right) {
+            temp = str[left];
+            str[left] = str[right];
+            str[right] = temp;
+            left++;
+            right--;
+        }
+    }
+
+    printf("Sentence with reversed words: %s\n", str);
+
+    return 0;
+}
