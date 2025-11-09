@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+int main() {
+    int n;
+
+
+    printf("Enter the number of elements in the array: ");
+    scanf("%d", &n);
+
+    int nums[n];
+    int answer[n];
+
+
+    printf("Enter %d integers:\n", n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &nums[i]);
+    }
+
+
+    for (int i = 0; i < n; i++) {
+        int product = 1;
+        for (int j = 0; j < n; j++) {
+            if (i != j) {  // Skip nums[i]
+                product *= nums[j];
+            }
+        }
+        answer[i] = product;
+    }
+
+
+    printf("Output array:\n");
+    for (int i = 0; i < n; i++) {
+        if (i == n - 1) {
+            printf("%d\n", answer[i]);
+        } else {
+            printf("%d, ", answer[i]);
+        }
+    }
+
+    return 0;
+}
