@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+int main() {
+    int n, k;
+
+
+    printf("Enter the number of elements in the array: ");
+    scanf("%d", &n);
+
+    int arr[n];
+
+
+    printf("Enter %d integers:\n", n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+
+    printf("Enter the window size k: ");
+    scanf("%d", &k);
+
+    printf("Maximum elements in each subarray of size %d:\n", k);
+
+
+    for (int i = 0; i <= n - k; i++) {
+        int max = arr[i];  // Assume first element of the window is max
+
+        // Find max in the current window
+        for (int j = 1; j < k; j++) {
+            if (arr[i + j] > max) {
+                max = arr[i + j];
+            }
+        }
+
+        printf("%d ", max);  // Print maximum for current window
+    }
+
+    printf("\n");
+
+    return 0;
+}
