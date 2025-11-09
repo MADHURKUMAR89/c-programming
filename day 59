@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int main() {
+    int n, k;
+
+
+    printf("Enter the number of elements in the array: ");
+    scanf("%d", &n);
+
+    int arr[n];
+
+    printf("Enter %d integers:\n", n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    printf("Enter the subarray size k: ");
+    scanf("%d", &k);
+
+    int maxSum = 0;  
+
+
+    for (int i = 0; i <= n - k; i++) {
+        int currentSum = 0;
+
+   
+        for (int j = 0; j < k; j++) {
+            currentSum += arr[i + j];
+        }
+
+        if (i == 0 || currentSum > maxSum) {
+            maxSum = currentSum;  // Update max sum
+        }
+    }
+
+    printf("Maximum sum of subarrays of size %d: %d\n", k, maxSum);
+
+    return 0;
+}
