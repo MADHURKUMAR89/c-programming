@@ -1,0 +1,55 @@
+#include <stdio.h>
+
+int main() {
+    int n, k;
+
+    
+    printf("Enter the size of the array: ");
+    scanf("%d", &n);
+
+    int arr[n];
+    printf("Enter the array elements: ");
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+   
+    printf("Enter the window size k: ");
+    scanf("%d", &k);
+
+    int i = 0, j = 0;
+    int queue[n]; 
+    int front = 0, rear = 0; 
+
+    while (j < n) {
+     
+        if (arr[j] < 0) {
+            queue[rear++] = j;
+        }
+
+        if (j - i + 1 < k) {
+            j++;
+        }
+     
+        else if (j - i + 1 == k) {
+          
+            if (front < rear) {
+                printf("%d ", arr[queue[front]]);
+            } else {
+                printf("0 ");
+            }
+
+       
+            if (front < rear && queue[front] == i) {
+                front++;
+            }
+
+          
+            i++;
+            j++;
+        }
+    }
+
+    printf("\n");
+    return 0;
+}
