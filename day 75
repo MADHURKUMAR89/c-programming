@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main() {
+    FILE *fp;
+    char text[200];
+
+
+    fp = fopen("info.txt", "a");
+    if (fp == NULL) {
+        printf("Error: Could not open the file.\n");
+        return 1;
+    }
+
+   
+    printf("Enter a line to append: ");
+    getchar();  
+    fgets(text, sizeof(text), stdin);
+
+  
+    fputs(text, fp);
+
+    fclose(fp);
+
+    printf("Text successfully appended to the file.\n");
+
+    return 0;
+}
