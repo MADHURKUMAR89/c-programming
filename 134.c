@@ -1,4 +1,4 @@
-/*Define an enum with SUCCESS, FAILURE, and TIMEOUT, and print messages accordingly.*/
+
 
 #include <stdio.h>
 
@@ -28,4 +28,5 @@ int main() {
     enum Status currentStatus = SUCCESS;
     printStatusMessage(currentStatus);
     return 0;
+
 }
